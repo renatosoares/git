@@ -16,10 +16,10 @@ class Laser
    
     def update
         if @shooting
-            @y = @y - 10
-            if @y < 0
-                @shooting = false
-            end
+			@x = @x + 10
+			if @x > @window.width
+			 	@shooting = false
+			end
         else
             @x = @player.x
             @y = @player.y
@@ -28,10 +28,10 @@ class Laser
    
     def draw
         if @shooting
-            @icon.draw(@x, @y, 4)
-        else
-            @icon.draw(@player.x,@player.y,4)
-        end
+			@icon.draw(@x+15, @y+15, 4)
+		else
+			@icon.draw((@player.x+15),(@player.y+15),4)
+		end
     end
    
 end
